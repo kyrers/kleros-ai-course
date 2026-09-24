@@ -51,11 +51,12 @@
 - Both met every criterion and the code is similar. B's no results message is clearer as it names the active filter.
 - A wrote tests and checked the browser without being asked, so my "double check" habit didn't produce a sloppy result.
 - B mapped its evidence to each criterion, added more tests, and flagged risks A didn't (e.g 1005 would also match 11005) or a blank page when only the status filter matches nothing.
-- The conclusion is that for this simple task the outcome brief didn't change the code much, but it produced better evidence and surfaced more risks. It also produced a slightly better UI, was slightly cheaper, and faster. Still, if improvements can be seen in this small task, I'll be adopting it in the future and checking if it improves my results. The winner is B, merged into `feat/ai-overhaul` at [9cda8af](https://github.com/kleros/dispute-resolver/commit/9cda8af9f8c334ae487ce285a037f7bf689c1b9e).
+- The conclusion is that for this simple task the outcome brief didn't change the code much, but it produced better evidence and surfaced more risks. It also produced a slightly better UI, was slightly cheaper, and faster. Still, if improvements can be seen in this small task, I'll be adopting it in the future and checking if it improves my results. The winner is B, merged into `feat/ui-overhaul` at [9cda8af](https://github.com/kleros/dispute-resolver/commit/9cda8af9f8c334ae487ce285a037f7bf689c1b9e).
 
 #### Follow-up: handoff to Codex
 
-- **Start commit:** [9cda8af](https://github.com/kleros/dispute-resolver/commit/9cda8af9f8c334ae487ce285a037f7bf689c1b9e). [Task and handoff note in next.md](/next.md#day-1-handoff-claude--codex).
+- **Start commit:** [9cda8af](https://github.com/kleros/dispute-resolver/commit/9cda8af9f8c334ae487ce285a037f7bf689c1b9e).
+- **Handoff note:** With a status filter that matches no disputes and an empty search, the page shows a clear message instead of a blank area. The existing no match message, with a search, and no data message, are unchanged. The malformed fixture's note is up to date. A test covers the empty filter case and all tests pass.
 - **Configuration:** Codex, GPT-6 Astra, extra-high.
 - **Cost and time:** 4 minutes total, 1 minute mine. Weekly usage left moved from 100% to 99%
 - **Result and evidence:** Pass. [The end goal was met](/evidence/day-1/search-bar-codex-handoff-result.png), one test was added, and all commands work properly.
