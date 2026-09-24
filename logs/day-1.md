@@ -17,7 +17,7 @@
 - **Configuration:** Claude Code, Fable 5.1, extra-high.
 - **Cost and time:** 31 minutes total, 6 minutes mine. $9.84 API equivalent cost.
 - **Result and Evidence:** Pass. `yarn start`, `yarn build`, and `CI=true yarn test` work as before. Limitations exist, as the fixture  mode only covers the Ongoing page, and countdowns use the current time, so they change between loads. [Gnosis with disputes](/evidence/day-1/fixture-mode-gnosis.png). [Mainnet empty](/evidence/day-1/fixture-mode-mainnet.png). [Loading](/evidence/day-1/fixture-mode-gnosis-loading.png). [Error](/evidence/day-1/fixture-mode-gnosis-fail.png).
-- **Learnings/Notes:** The agent flagged a pre-existing crash on malformed disputes and reported as instructed. This caused me to make one intervention to change the fixture design, so not an agent error. Another limitation is that the switch to fixture mode puts test code into production code. Kept for the course and will try to replace with network-level mocking on Day 2. If unsuccessful, it will need to be fixed later, or removed, before any PR reaches production.
+- **Learnings/Notes:** The agent flagged a pre-existing crash on malformed disputes and reported as instructed. This caused me to make one intervention to change the fixture design, so not an agent error. Another limitation is that the switch to fixture mode puts test code into production code. Kept for the course, but it must be replaced with network-level mocking, or removed, after finishing the course and before any PR reaches production.
 
 
 
