@@ -1,14 +1,15 @@
-# Log
+# Resources log
 
 ## Habit to retest (R02):
 
-- Asking the model to double check its work at the end of its run.
+- **Asking the model to double check its work at the end of its run.**
+  - **Day 1 evidence:** tested against the outcome brief on the search bar (see [logs/day-1.md](logs/day-1.md)). Both met the criteria, but the brief gave better evidence and flagged more risks, so I'm dropping "double check your work" in favour of explicit checks.
 
 ## AA table version + date (R04):
 
 - AA Coding Agent Index v1.5, checked on September 22nd 2026. Same as the PDF.
 
-## Plans / limits (R05):
+## Plans / Limits (R05):
 
 - **Claude Max 20x, €180/month (purchased as a business):** 
   - Note this has been my plan for a while and pre-dates the start of the course.
@@ -29,33 +30,46 @@
   - I hit the limits on both my plans, and
   - saves ≥ 2.54 hours/month (approx. 2h32min)
 
-
-
 ## Claim to test (R25):
 
 - **AIs have poor taste for UI.**
   - **Day 1 evidence:** same prompt to Claude and Codex gave clearly different designs. Codex's was better, but still needed minor taste corrections. Claude design not tried yet, but it might produce better results.
+  - **Day 2 evidence:** same prompt to Claude and Codex gave different designs again. However, this time, Claude Code had the better design and followed the brief better. Still needed one intervention with taste corrections.
 
+## Visual direction (R09):
 
+- **Direction:** Consistent with the redesigned Ongoing page, within Kleros branding. No Refero style found that helps the Dispute Resolver after a quick 10 minute look.
+- **Constraints for new UI:** No filler copy, plain factual labels, re-use existing components.
+- **Papercuts to fix:**
+  - The filler header on the Ongoing page;
+  - The unstyled "View mode only" banner;
+  - The "Interact" navigation label doesn't say what the page is;
+  - Ongoing cards show "Court unavailable" while the court list is still loading.
+
+## Development mode (R32)
+- **Workflow:** Critical, because the case page handles evidence, appeal funding, and withdrawals. Errors are easy to spot. Thus, vibecode and vibecheck.
+- **Who implements:** Claude Code or Codex.
+- **What gets checked:** The executed tests, including checking the transaction contents for contract interaction related tests, plus my own browser checks.
+- **Code review:** None, per this cell.
+- **Hidden failure that would change it:** If the contract call tests take their expected values from the same code they test, a wrong amount or ruling would pass. Errors would then be hard to spot.
+
+# Measurements and Setup
 
 ## Setup
 
 - Created the `feat/ui-overhaul` branch on the dispute resolver, based on `master` last commit [#cd01cdb](https://github.com/kleros/dispute-resolver/commit/cd01cdbf3650562ac4bd42df28efa1a5539ee20e).
 - Claude Code had memories regarding the dispute resolver. Those were moved to a backup folder and auto memory was disabled for the repository. Codex had no memories and the memory setting was already off.
 - The repository also had a `CLAUDE.md` that was mostly wrong. It was trimmed and also shared to Codex via a `AGENTS.md` file, so both have the same instructions.
-- During the harmless check, both Claude Code (Fable 5.1 xHigh) and Codex (GPT-6 Astra xHigh) ran slightly different versions of the `yarn test` command. The suite is broken, so it failed. Claude Code, however, [explained why](evidence/day-1/claude-code-check.png). [Codex didn't.](evidence/day-1/codex-check.png)
-
-
+- During the harmless check, both Claude Code (Fable 5.1 xHigh) and Codex (GPT-6 Astra xHigh) ran slightly different versions of the `yarn test` command. The suite was broken, so it failed. Claude Code, however, [explained why](evidence/day-1/claude-code-check.png). [Codex didn't](evidence/day-1/codex-check.png). The suite has since been fixed on Day 1.
 
 ## Overall plan usage:
 
-
 | Day | Claude weekly (used) | Claude Fable (used) | Codex weekly (left) | Note |
-| --- | -------------------- | ------------------- | ------------------- | ---- |
-| 1   | 3% → 9%              | 4% → 12%             | 100% → 97%         |   Claude used more. No limits hit.   |
-
-
-
+| --- | -------------------- | ------------------- | ------------------- | -------------------------------------- |
+| 1   | 3% -> 9%              | 4% -> 12%             | 100% -> 97%         |   Claude had more runs. No limits hit. |
+| 2   | 9% -> 18%             | 12% -> 24%            | 97% -> 90%          |   Both had same number of runs, but Claude had a more difficult task. No limits hit.   |
 
 ## Runs:
+
 - [Day 1](logs/day-1.md)
+- [Day 2](logs/day-2.md)

@@ -1,6 +1,16 @@
 # Next
 
-### Day 1: handoff Claude → Codex
+## Day 1 -> Day 2
+- **State:** Slice 1 done.
+- **Unfinished checks / review:** None.
+- **Next:** Day 2 of the course.
 
-- **State:** The ongoing page search bar (attempt B, Claude) is on `feat/ui-overhaul` at `9cda8af`.
-- **Next:** With a status filter that matches no disputes and an empty search, the page shows a clear message instead of a blank area. The existing no match message, with a search, and no data message, are unchanged. The malformed fixture's note is up to date. A test covers the empty filter case and all tests pass.
+## Day 2 -> Day 3
+- **State:** Case page redesign merged at [35f8864](https://github.com/kleros/dispute-resolver/commit/35f886413549c0021af31509ac2b246bcd9b832e).
+- **Unfinished checks / review:** None.
+- **Next:** Day 3 of the course.
+    - Open slice 2 work, potentially useful for some Day 3 tasks:
+        - Restyle the evidence form to match the new case details page.
+        - Free-value questions show Yes/No funding cards.
+        - Check whether Gnosis amounts should say xDAI instead of ETH.
+    - Slice 3.
