@@ -35,13 +35,14 @@
 - **AIs have poor taste for UI.**
   - **Day 1 evidence:** same prompt to Claude and Codex gave clearly different designs. Codex's was better, but still needed minor taste corrections. Claude design not tried yet, but it might produce better results.
   - **Day 2 evidence:** same prompt to Claude and Codex gave different designs again. However, this time, Claude Code had the better design and followed the brief better. Still needed one intervention with taste corrections.
+  - **Day 3 evidence:** Claude alone, via `/goal` produced a design I liked on the first run. It only needed small taste corrections. Could be because it had one more screen to look at and base off.
 
 ## Visual direction (R09):
 
 - **Direction:** Consistent with the redesigned Ongoing page, within Kleros branding. No Refero style found that helps the Dispute Resolver after a quick 10 minute look.
 - **Constraints for new UI:** No filler copy, plain factual labels, re-use existing components.
 - **Papercuts to fix:**
-  - The filler header on the Ongoing page;
+  - ~~The filler header on the Ongoing page~~ (fixed on Day 3 as part of slice 3);
   - The unstyled "View mode only" banner;
   - The "Interact" navigation label doesn't say what the page is;
   - Ongoing cards show "Court unavailable" while the court list is still loading.
@@ -52,6 +53,13 @@
 - **What gets checked:** The executed tests, including checking the transaction contents for contract interaction related tests, plus my own browser checks.
 - **Code review:** None, per this cell.
 - **Hidden failure that would change it:** If the contract call tests take their expected values from the same code they test, a wrong amount or ruling would pass. Errors would then be hard to spot.
+
+## Harness (R15):
+- **Evaluator:** A separate review session, alongside the tests and my browser checks.
+- **Durable state:** Git commits, `next.md` and the logs. Agent memory is off for the course, so nothing carries over.
+- **Sandbox:** Separate copies and fixture mode. `.env` is readable by agents, but only contains `REACT_APP` variables, which are designed to be public in the app bundle anyway.
+- **Feedback:** Tests, build output, and the browser checks. Also, the new `verifying-ui-changes` skill, if applicable.
+- **Workaround tested:** Removing "Don't rewrite, restructure or reformat code outside what the task needs" from `CLAUDE.md`, because a similar rule already exists, and the talk argues that this type of rule (example use was a fixed memory schema) might stop paying off as models improve.
 
 # Measurements and Setup
 
@@ -66,10 +74,13 @@
 
 | Day | Claude weekly (used) | Claude Fable (used) | Codex weekly (left) | Note |
 | --- | -------------------- | ------------------- | ------------------- | -------------------------------------- |
-| 1   | 3% -> 9%              | 4% -> 12%             | 100% -> 97%         |   Claude had more runs. No limits hit. |
-| 2   | 9% -> 18%             | 12% -> 24%            | 97% -> 90%          |   Both had same number of runs, but Claude had a more difficult task. No limits hit.   |
+| 1   | 3% -> 9%             | 4% -> 12%            | 100% -> 97%        | Claude had more runs. No limits hit. |
+| 2   | 9% -> 18%            | 12% -> 24%           | 97% -> 90%         | Both had same number of runs, but Claude had a more difficult task. No limits hit. |
+| 3   | 18% -> 28%           | 24% -> 41%           | 90% -> 90%         | Only Claude code was used today. No limits hit.  |
+
 
 ## Runs:
 
 - [Day 1](logs/day-1.md)
 - [Day 2](logs/day-2.md)
+- [Day 3](logs/day-3.md)
