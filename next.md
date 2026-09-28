@@ -30,3 +30,15 @@
         - Restyle the evidence form to match the new design.
         - Free-value questions show Yes/No funding cards.
         - Case page amounts say ETH on Gnosis, while the Create page says xDai. Make them consistent.
+
+## Day 4 -> Day 5
+
+**Workflow + Parallel task return note:** 
+- Adapter worker stopped by hand to force a branch failure, UI worker still running. Codex GPT-6 Astra medium vs extra-high comparison running in separate copies. When the run stops at the join, relaunch it and record which agents rerun.
+
+**Handoff to day 5:**
+- **State:** Slice 4 work pushed at [bc66f32](https://github.com/kleros/dispute-resolver/commit/bc66f32c2cbbe378e7326545d33fe25c27b301e3). The day 4 work also included the evidence dialog redesign and the fresh-install fix. All tests pass.
+- **Unfinished checks / review:** None.
+- **Next:** Day 5 of the course.
+    - Open work potentially useful for some Day 5 tasks:
+        - Free-value questions show Yes/No funding cards.

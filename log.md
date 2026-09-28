@@ -36,6 +36,7 @@
   - **Day 1 evidence:** same prompt to Claude and Codex gave clearly different designs. Codex's was better, but still needed minor taste corrections. Claude design not tried yet, but it might produce better results.
   - **Day 2 evidence:** same prompt to Claude and Codex gave different designs again. However, this time, Claude Code had the better design and followed the brief better. Still needed one intervention with taste corrections.
   - **Day 3 evidence:** Claude alone, via `/goal` produced a design I liked on the first run. It only needed small taste corrections. Could be because it had one more screen to look at and base off.
+  - **Day 4 evidence:** UI changes were limited to footer and header, but the design matched the other pages correctly. Minor adjustments were needed. Although this day had the smallest UI overhaul so far, it does seem like having more examples is improving the agent's styling choices.
 
 ## Visual direction (R09):
 
@@ -43,9 +44,9 @@
 - **Constraints for new UI:** No filler copy, plain factual labels, re-use existing components.
 - **Papercuts to fix:**
   - ~~The filler header on the Ongoing page~~ (fixed on Day 3 as part of slice 3);
-  - The unstyled "View mode only" banner;
-  - The "Interact" navigation label doesn't say what the page is;
-  - Ongoing cards show "Court unavailable" while the court list is still loading.
+  - ~~The unstyled "View mode only" banner~~ (fixed on Day 4 as part of slice 4);
+  - ~~The "Interact" navigation label doesn't say what the page is~~ (fixed on Day 4 as part of slice 4);
+  - ~~Ongoing cards show "Court unavailable" while the court list is still loading~~ (fixed on Day 4, during the effort comparison);
 
 ## Development mode (R32)
 - **Workflow:** Critical, because the case page handles evidence, appeal funding, and withdrawals. Errors are easy to spot. Thus, vibecode and vibecheck.
@@ -60,6 +61,15 @@
 - **Sandbox:** Separate copies and fixture mode. `.env` is readable by agents, but only contains `REACT_APP` variables, which are designed to be public in the app bundle anyway.
 - **Feedback:** Tests, build output, and the browser checks. Also, the new `verifying-ui-changes` skill, if applicable.
 - **Workaround tested:** Removing "Don't rewrite, restructure or reformat code outside what the task needs" from `CLAUDE.md`, because a similar rule already exists, and the talk argues that this type of rule (example use was a fixed memory schema) might stop paying off as models improve.
+
+## Recovery prediction (R19):
+- **Prediction:** When one of my two concurrent workers fails and I relaunch, the failed worker runs again, and so does any worker that started after it, even if it had finished. Workers that started before it are reused. This is stated in the resource and the course PDF itself. However, with both workers started together, which one counts as "after" can vary. Also, per the course "Use a small graph" section, the integrator should have requirements at the join, meaning that if one worker fails, it should stop. After relaunch, it runs once both workers succeed.
+- **Actual (Day 4 block 4):** As predicted. After I stopped the adapter, the worker that started first, and relaunched, the adapter reran, and so did the completed UI worker, because it started after it. The integrator only ran once both passed the join. I did not predict the relaunch reusing the previous run's worktrees, which the start-revision check caught.
+
+## Effort and model hypothesis (R22):
+- **Hypothesis 1 (block 5, required):** On a bounded task, the same model at a lower effort gives the same accepted result for less usage/cost.
+- **Measured on:** accepted quality, complexity (diff size), my review time, usage.
+- **Result:** Supported on both tasks (Codex, GPT-6 Astra): medium was faster (1m31 vs 2m20, and 2m31 vs 3m04) with an equal or better result. Only two small tasks, so not a generalization, but actually useful for my personal experience, as I tend to not reduce effort, but it appears that I should try it more often.
 
 # Measurements and Setup
 
@@ -77,6 +87,7 @@
 | 1   | 3% -> 9%             | 4% -> 12%            | 100% -> 97%        | Claude had more runs. No limits hit. |
 | 2   | 9% -> 18%            | 12% -> 24%           | 97% -> 90%         | Both had same number of runs, but Claude had a more difficult task. No limits hit. |
 | 3   | 18% -> 28%           | 24% -> 41%           | 90% -> 90%         | Only Claude code was used today. No limits hit.  |
+| 4   | 28% -> 42%           | 41% -> 65%           | 90% -> 88%         | Claude did the heavy lifting, particularly the workflow run. No limits hit.  |
 
 
 ## Runs:
@@ -84,3 +95,4 @@
 - [Day 1](logs/day-1.md)
 - [Day 2](logs/day-2.md)
 - [Day 3](logs/day-3.md)
+- [Day 4](logs/day-4.md)
