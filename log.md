@@ -37,6 +37,7 @@
   - **Day 2 evidence:** same prompt to Claude and Codex gave different designs again. However, this time, Claude Code had the better design and followed the brief better. Still needed one intervention with taste corrections.
   - **Day 3 evidence:** Claude alone, via `/goal` produced a design I liked on the first run. It only needed small taste corrections. Could be because it had one more screen to look at and base off.
   - **Day 4 evidence:** UI changes were limited to footer and header, but the design matched the other pages correctly. Minor adjustments were needed. Although this day had the smallest UI overhaul so far, it does seem like having more examples is improving the agent's styling choices.
+  - **Day 5 evidence:** The chain switcher matched the redesigned header on the first pass. Although, one minor taste correction was needed even for this simple task.
 
 ## Visual direction (R09):
 
@@ -88,6 +89,8 @@
 | 2   | 9% -> 18%            | 12% -> 24%           | 97% -> 90%         | Both had same number of runs, but Claude had a more difficult task. No limits hit. |
 | 3   | 18% -> 28%           | 24% -> 41%           | 90% -> 90%         | Only Claude code was used today. No limits hit.  |
 | 4   | 28% -> 42%           | 41% -> 65%           | 90% -> 88%         | Claude did the heavy lifting, particularly the workflow run. No limits hit.  |
+| 5   | 42% -> 47%           | 65% -> 72%           | 88% -> 85%         | Aside from the capstone task, usage was not heavy today. No limits hit.  |
+
 
 
 ## Runs:
@@ -96,3 +99,4 @@
 - [Day 2](logs/day-2.md)
 - [Day 3](logs/day-3.md)
 - [Day 4](logs/day-4.md)
+- [Day 5](logs/day-5.md)
